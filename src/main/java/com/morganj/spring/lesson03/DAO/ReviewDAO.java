@@ -1,4 +1,4 @@
-package com.morganj.spring.lesson03.DAO;
+package com.morganj.spring.lesson03.dao;
 
 import org.springframework.stereotype.Repository;
 
