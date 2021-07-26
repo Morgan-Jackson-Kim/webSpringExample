@@ -26,4 +26,20 @@ public class ReviewController {
 		
 		return reviewBO.getReview(id);
 	}
+	
+	@RequestMapping("/lesson03/ex02")
+	public String ex02() {
+		//int count = reviewBO.addReview(4, "콤비네이션 피자", "김바다", 4.5, "할인도 많이 받고 잘 먹었습니다.");
+		
+		Review review= new Review();
+		review.setStoreId(2);
+		review.setMenu("뿌링클");
+		review.setUserName("김인규");
+		review.setPoint(3.5);
+		review.setReview("별로 맛 없었어요");
+		
+		int count = reviewBO.addReview(review);
+		
+		return "insert success " + count;
+	}
 }
