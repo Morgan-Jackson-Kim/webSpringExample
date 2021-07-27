@@ -42,4 +42,23 @@ public class ReviewController {
 		
 		return "insert success " + count;
 	}
+	
+	//update
+	//요청 url : http://lcalhost/lesson03/ex03?id=23 & review=너무너무 마싯ㅅ어
+	@RequestMapping("/lesson03/ex03")
+	public String ex03 (
+			@RequestParam("id") int id,
+			@RequestParam("review") String review) {
+		int count = reviewBO.updateReviewById(id, review);
+		return "update 성공 : " + count;
+	}
+	
+	//delete
+	@RequestMapping("/lesson03/ex04")
+	public String ex04(
+			@RequestParam("id") int id
+			) {
+		int count =reviewBO.deleteReviewById(id);
+		return "delete 성공 : " + count;
+	}
 }
