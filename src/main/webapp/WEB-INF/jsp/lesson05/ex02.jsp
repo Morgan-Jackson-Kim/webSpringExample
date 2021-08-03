@@ -42,5 +42,19 @@
 	<c:forEach var="fruits" items="${fruits }" varStatus="status">
 		<h4>${fruits } :::: ${status.count } ${status.index }</h4>
 	</c:forEach>
+	
+	<br>
+	
+	<!-- List<Map> 사용하기 -->
+	<c:forEach var="user" items="${users }" varStatus="status">
+		<h3>${status.count }번째 사람정보</h3>
+		<ul>
+			<li>이름 : ${user.name }</li>
+			<li>나이 : ${user.age }</li>
+			<li>취미 : ${user.hobby }</li>
+		</ul>
+	</c:forEach>
+	
+	
 </body>
 </html>
