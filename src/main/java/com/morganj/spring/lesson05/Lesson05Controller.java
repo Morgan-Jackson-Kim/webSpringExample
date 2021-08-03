@@ -51,4 +51,12 @@ public class Lesson05Controller {
 		
 		return "lesson05/ex02";
 	}
+	
+	@GetMapping("/ex03")
+	public String ex03(
+			Model model
+			) {
+		
+		return "lesson05/ex03";
+	}
 }
