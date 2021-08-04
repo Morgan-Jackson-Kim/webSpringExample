@@ -32,6 +32,18 @@
 	<%-- 소수 자리수 --%>
 	<fmt:formatNumber value="3.141592" pattern="#.##"/> <br>
 	<fmt:formatNumber value="3.141592" pattern="0.00"/>
+	<br>
+	${today }
+	<br>
+	
+	<fmt:formatDate value="${today }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/> <br>
+	<fmt:formatDate var="newDate" value="${today }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/>
+	${newDate }
+	
+	<%-- 날짜 문자열을 Date객체로 변환 --%>
+	<fmt:parseDate value="${newDate }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" var="date"/>
+	${date }
+	
 	
 </body>
 </html>
