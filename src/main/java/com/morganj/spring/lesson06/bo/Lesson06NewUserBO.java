@@ -13,4 +13,12 @@ public class Lesson06NewUserBO {
 	public int addNewUser(String name, String yyyymmdd,String introduce, String email) {
 		return newUserDAO.insertNewUser(name, yyyymmdd, introduce, email);
 	}
+	
+	public boolean existName(String name) {
+		if( newUserDAO.selectCountName(name) == 0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

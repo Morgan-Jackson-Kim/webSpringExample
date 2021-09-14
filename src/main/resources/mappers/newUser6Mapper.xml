@@ -23,4 +23,15 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="selectCountName" resultType="int" parameterType="String">
+ 		SELECT
+ 			COUNT(1)
+ 		FROM
+ 			`new_user`
+ 		WHERE
+ 			`name` = #{name}
+ 		
+ 	
+ 	</select>
  </mapper>

@@ -17,7 +17,13 @@
 		<h1>회원정보 추가</h1>
 		<!-- <form action="/lesson06/add_user" method="post" id="userForm">  -->
 			<!-- 이름,생년,소개,주소 -->
-			<input type="text" class="form-control" name="name" id="nameInput" placeholder="이름을 입력하세요">
+			<div class="d-flex">
+				<input type="text" class="form-control" name="name" id="nameInput" placeholder="이름을 입력하세요">
+				<button class="btn btn-info" id="nameCheck">중복체크</button>
+			</div>
+			<div class="text-danger d-none" id="duplicateDiv"> <small>중복되었습니다</small> </div>
+			<div class="text-success d-none" id="availableDiv"> <small>등록가능한 이름입니다.</small> </div>
+			
 			<input type="text" class="form-control" name="yyyymmdd" id="yyyymmddInput" placeholder="생년월일을 입력하세요">
 			<textarea rows="10" class="form-control" name="introduce" id="introduceInput"></textarea>
 			<input type="text" class="form-control" name="email" id="emailInput" placeholder="이메일을 입력하세요">
@@ -82,8 +88,36 @@
 					}
 				});
 
-			})
-		})
+			});
+			
+			$("#nameCheck").on("click",function(){
+				var name = $("#nameInput").val();
+				if(name == null || name == ""){
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/lesson06/is_duplication",
+					data:{"name":name},
+					success:function(data){
+						if(data.isDuplicate == "true") {
+							$("#duplicateDiv").removeClass("d-none");
+							$("#availableDiv").addClass("d-none");
+						} else{
+							$("#availableDiv").removeClass("d-none");
+							$("#duplicateDiv").addClass("d-none");
+						}
+					},
+					error:function(){
+						alert("error");
+					}
+					
+				});
+				
+			});
+		});
 	</script>
 
 
